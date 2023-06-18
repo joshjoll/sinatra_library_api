@@ -1,7 +1,7 @@
 require_relative 'data'
 require_relative 'book'
-# require_relative 'author'
 require_relative 'genre'
+require_relative 'author'
 
 class Library
     include Data
@@ -40,6 +40,11 @@ class Library
 
     def genre(genre)
         @books = @books.select{ |book| book.genre.downcase == genre.downcase}
+    end
+
+    # summary resources for other endpoints
+    def all_authors
+        Author.serialize_all(Author.all_authors(@books))
     end
 
     def all_genres
