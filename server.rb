@@ -39,4 +39,13 @@ namespace '/api/v1' do
         not_found('Book') unless book
         return book.serialize(base_url).to_json
     end
+    get '/genres' do
+        return @library.all_genres.to_json
+    end
+
+    get '/genre/:genre' do
+        @library.genre(params[:genre])
+        not_found('Author') if @library.books.empty?
+        return @library.books.map{|book| book.serialize(base_url)}.to_json
+    end
 end
