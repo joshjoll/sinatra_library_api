@@ -1,6 +1,6 @@
 require 'sinatra'
 require "sinatra/namespace"
-require_relative 'library'
+require_relative './models/library'
 
 # endpoints
 # /books - all books and filtered books
