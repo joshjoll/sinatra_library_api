@@ -2,7 +2,13 @@ require 'sinatra'
 require "sinatra/namespace"
 require_relative 'library'
 
-
+# endpoints
+# /books - all books and filtered books
+# /book - single book by isbn
+# /genres - returns all genres
+# /genre - returns all books of that genre
+# /authors - returns all authors
+# /author - returns all books by that author
 
 get '/' do
     'Welcome to Booklist, again'

@@ -1,4 +1,4 @@
-require_relative 'data'
+require_relative '../data'
 require_relative 'book'
 require_relative 'genre'
 require_relative 'author'
@@ -22,7 +22,7 @@ class Library
     def all
         @books
     end
-
+    # filters for /books
     def title(title)
         @books = @books.select{ |book| book.title.downcase.match(/#{title.downcase}/) }
         return nil
