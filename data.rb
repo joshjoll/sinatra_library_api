@@ -1,5 +1,6 @@
+# This file holds all of the data used in this API. 
+# This API does not use a database, and pulls from this module only
 module Data
-
     #book format
     # {:author => '', :title => '', :released => '', :isbn => '', :genre => ''},
 
