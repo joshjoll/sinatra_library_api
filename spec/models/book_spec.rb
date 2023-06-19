@@ -27,11 +27,13 @@ RSpec.describe Book, type: :model do
 
             expect(serialized_data.keys.sort).to eq([:author, :title, :isbn, :released, :genre, :url].sort)
 
-            expect(serialized_data[:title]).to eq(book.title)
-            expect(serialized_data[:author]).to eq(book.author)
-            expect(serialized_data[:isbn]).to eq(book.isbn)
-            expect(serialized_data[:released]).to eq(book.released)
-            expect(serialized_data[:genre]).to eq(book.genre)
+            expect(serialized_data).to include(
+                :title => book.title,
+                :author => book.author,
+                :isbn => book.isbn,
+                :released => book.released,
+                :genre => book.genre
+            )
         end
 
         it "builds a url to access the book resource" do
