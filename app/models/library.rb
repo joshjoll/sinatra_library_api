@@ -8,7 +8,7 @@ class Library
     attr_reader :books
     
     def initialize()
-        @books = all_novels.map do |book| 
+        @books = all_books.map do |book| 
             Book.new(
                 author: book[:author], 
                 isbn: book[:isbn], 

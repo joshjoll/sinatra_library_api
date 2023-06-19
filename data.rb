@@ -4,7 +4,7 @@ module Data
     #book format
     # {:author => '', :title => '', :released => '', :isbn => '', :genre => ''},
 
-    def all_novels
+    def all_books
         return fantasy_novels + technical_books + non_fiction_books + fiction_books + other_books
     end
 
