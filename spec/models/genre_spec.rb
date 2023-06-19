@@ -6,12 +6,12 @@ RSpec.describe Genre, type: :model do
     let(:books) {Library.new.books}
     let(:genre_list) {Genre.all_genres(books).uniq}
     describe '.all_genres' do
-        it 'returns an array of authors' do
+        it 'returns an array of genres' do
             expect(Genre.all_genres(books)).to be_a(Array)
             expect(Genre.all_genres(books)).not_to be_a(Hash)
         end
 
-        it 'includes all book authors' do
+        it 'includes all book genres' do
             expect(Genre.all_genres(books).sort).to eq(genre_list.sort) 
         end
 
@@ -25,12 +25,12 @@ RSpec.describe Genre, type: :model do
             expect(Genre.serialize_all(genre_list)).to be_a(Hash)
         end
 
-        it 'has one key named authors' do
+        it 'has one key named genres' do
             expect(Genre.serialize_all(genre_list).keys.count).to eq(1)
             expect(Genre.serialize_all(genre_list).keys).to include(:genres)
         end
 
-        it "has an array of all authors" do
+        it "has an array of all genres" do
             expect(Genre.serialize_all(Genre.all_genres(books))[:genres].sort).to eq(genre_list.sort)
         end
         
