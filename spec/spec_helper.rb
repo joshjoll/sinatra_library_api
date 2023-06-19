@@ -100,4 +100,21 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  RSpec::Matchers.define :include_query_text_in_attribute do |query, attribute|
+    match do |book_set|
+      return false if book_set.empty?
+      book_set.all? do |book|
+        book.send(attribute.to_sym).downcase.include?(query.downcase)
+      end
+    end
+
+    failure_message do |book_set|
+      "expected each book in filter to match the query text (#{query}) \n
+      EXPECTED \n
+      #{query} \n
+      ACTUAL \n
+      #{book_set.map{|book| book.title}.join("\n")}"
+    end
+  end
 end
