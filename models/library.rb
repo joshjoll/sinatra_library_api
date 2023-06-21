@@ -1,7 +1,5 @@
-require_relative '../../data'
-require_relative 'book'
-require_relative 'genre'
-require_relative 'author'
+require './data'
+require_relative 'init'
 
 class Library
     include Data
